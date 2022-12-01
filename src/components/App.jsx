@@ -1,16 +1,33 @@
+import { useEffect, useState } from 'react';
+import { Profile } from './profile/Profile';
+import { fetchPeople } from './services';
+
 export const App = () => {
+  const [page, setPage] = useState(1);
+  const [swapiTable, setSwapiTable] = useState([]);
+  const renderPeople = async page => {
+    try {
+      const fetchedPeople = await fetchPeople(page);
+      setSwapiTable([fetchedPeople, ...swapiTable]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    renderPeople(page);
+  }, [page]);
+
+  const nextPerson = () => {
+    setPage(page + 1);
+  };
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Profile />
+      <button type="button" onClick={nextPerson}>
+        next profiles
+      </button>
     </div>
   );
 };
