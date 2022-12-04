@@ -1,0 +1,105 @@
+@import '../../variables/variables';
+
+h1 {
+  font-family: $secondary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1;
+  text-align: left;
+}
+
+.profile__wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 100vh;
+  background-color: #ffffff;
+}
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 26px;
+  padding-top: 11px;
+  padding-left: 21px;
+}
+.profile-card {
+  margin: 0 auto;
+  margin-top: 100px;
+  padding-bottom: 69.69px;
+  max-width: 800px;
+  min-height: 739.83px;
+  //   background: #917878;
+  //   background: rgba(54, 44, 44, 0.01);
+  background: rgba(54, 44, 44, 0.39);
+  backdrop-filter: blur(280px);
+  border-radius: 500px 60px 300px 100px;
+  &::after {
+    content: '';
+    display: block;
+    filter: drop-shadow(12px 4px 4px rgba(0, 0, 0, 0.6));
+    border-radius: 500px 60px 300px 100px;
+  }
+  &__picture {
+    border-radius: 200px 20px 100px 50px;
+    margin-top: 140px;
+    margin-bottom: 27px;
+  }
+
+  .profile-card__icon {
+    &:nth-child(1) {
+      margin-right: 10px;
+    }
+    &__wrapper {
+      position: absolute;
+      top: 555px;
+      right: 140px;
+    }
+  }
+
+  & h2 {
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+    // max-height: 76px;
+    // margin-top: 25.39px;
+    // margin-right: 21px;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 1.22;
+    padding-right: 127px;
+  }
+
+  & p {
+    font-style: italic;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: left;
+    padding-left: 226.65px;
+    margin: 5px;
+  }
+}
+.StyleLink {
+  text-decoration: none;
+  color: #ffffff;
+}
+button {
+  width: 236px;
+  height: 90px;
+  background: #35660e;
+  box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  border: none;
+  // font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px;
+  cursor: pointer;
+}
+.button--next-profile {
+  max-height: 54.88px;
+  margin-top: 30px;
+}

@@ -1,0 +1,109 @@
+@import '../../variables/variables';
+
+form {
+  padding-top: 101px;
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 100vh;
+  background-color: #ffffff;
+  text-align: left;
+
+  h2 {
+    text-align: right;
+    padding-right: 174px;
+    position: absolute;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.65;
+    letter-spacing: 0.15em;
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      width: 166.17px;
+      height: 9.29px;
+      background: #071594;
+      margin-left: 789px;
+      top: 20px;
+    }
+  }
+  & .form-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 203px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.65;
+    max-width: 752.87px;
+    margin-top: 23.22px;
+    &.label {
+      margin-top: 107px;
+    }
+    & label {
+      margin-bottom: 30px;
+      &.checkbox {
+        padding-left: 50px;
+        margin-top: 33.45px;
+        & text {
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+  & input {
+    text-align: left;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    outline: none;
+    &[type='checkbox'] {
+      visibility: hidden;
+      position: absolute;
+      &::before {
+        visibility: visible;
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: 3px solid #000000;
+        border-radius: 5px;
+        position: relative;
+        right: 50px;
+      }
+    }
+  }
+  & button {
+    width: 224.3px;
+    height: 54.88px;
+    background: #071594;
+    box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    padding: 10px;
+    font-family: $secondary-font;
+    font-style: italic;
+    font-size: 30px;
+    line-height: 1;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: block;
+    margin: 28px auto;
+  }
+
+  & text {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.65;
+    color: #ff0000;
+    text-align: right;
+  }
+}
+.invalid {
+  border-bottom: 1px solid #f00;
+  &::before {
+    border: 3px solid #f00;
+  }
+}

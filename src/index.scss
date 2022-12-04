@@ -1,0 +1,26 @@
+// @import-normalize; /* bring in normalize.css styles */
+@import '~normalize.css';
+
+@import './variables/variables';
+@import './components/profile/ProfileStyles';
+@import './components/register/RegisterStyles';
+
+body {
+  margin: 0 auto;
+  text-align: center;
+  font-family: $main-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $main-color;
+  background-color: #d9d9d9;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
