@@ -68,7 +68,7 @@ export const Register = ({ onSubmit }) => {
           className={formErrors.email && 'invalid'}
           type="email"
         />
-        <text>{formErrors.email}</text>
+        <span className="error">{formErrors.email}</span>
       </div>
       <div className="form-group">
         <label>Numer telefonu:</label>
@@ -79,7 +79,7 @@ export const Register = ({ onSubmit }) => {
           className={formErrors.phone && 'invalid'}
           type="phone"
         />
-        <text>{formErrors.phone}</text>
+        <span className="error">{formErrors.phone}</span>
       </div>
       <div className="form-group">
         <label className="checkbox">
@@ -88,10 +88,12 @@ export const Register = ({ onSubmit }) => {
             id="agreement"
             name="agreement"
             onChange={handleChange}
-            aria-checked={agreement}
+            checked={agreement}
             className={formErrors.agreement && 'invalid'}
           />
-          Akceptuję Regulamin<text>{formErrors.agreement}</text>
+          <span className="checkmark"></span>
+          Akceptuję Regulamin
+          <span className="agreement--error">{formErrors.agreement}</span>
         </label>
       </div>
       <button type="submit">zapisz</button>

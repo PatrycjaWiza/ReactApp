@@ -45,10 +45,50 @@ form {
       margin-bottom: 30px;
       &.checkbox {
         padding-left: 50px;
+        display: block;
+        position: relative;
         margin-top: 33.45px;
-        & text {
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        & input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+        & .agreement--error {
           margin-left: 40px;
         }
+        & .checkmark::after {
+          left: 10px;
+          top: 5px;
+          width: 6px;
+          height: 12px;
+          border: solid #000;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+    }
+    & .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #000000;
+      margin-right: 50px;
+      border-radius: 5px;
+      &::after {
+        content: '';
+        position: absolute;
+        display: none;
       }
     }
   }
@@ -58,20 +98,8 @@ form {
     border-left: 1px;
     border-right: 1px;
     outline: none;
-    &[type='checkbox'] {
-      visibility: hidden;
-      position: absolute;
-      &::before {
-        visibility: visible;
-        content: '';
-        display: block;
-        width: 30px;
-        height: 30px;
-        border: 3px solid #000000;
-        border-radius: 5px;
-        position: relative;
-        right: 50px;
-      }
+    &:checked ~ .checkmark::after {
+      display: block;
     }
   }
   & button {
@@ -92,7 +120,8 @@ form {
     margin: 28px auto;
   }
 
-  & text {
+  & .error,
+  .agreement--error {
     font-style: italic;
     font-weight: 300;
     font-size: 20px;
@@ -100,10 +129,15 @@ form {
     color: #ff0000;
     text-align: right;
   }
-}
-.invalid {
-  border-bottom: 1px solid #f00;
-  &::before {
+  & .checkbox input:not(:checked) ~ .checkmark {
+    content: '';
+    display: block;
     border: 3px solid #f00;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+  }
+  & .invalid {
+    border-bottom: 1px solid #f00;
   }
 }

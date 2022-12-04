@@ -39,16 +39,18 @@ export const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Profile
-              profile={profile}
-              onClick={nextPerson}
-              getPicture={pictureURL}
-            />
-          }
-        />
+        {profile && (
+          <Route
+            path="/"
+            element={
+              <Profile
+                profile={profile}
+                onClick={nextPerson}
+                getPicture={pictureURL}
+              />
+            }
+          />
+        )}
         <Route path="/register" element={<Register />} onSubmit={onSubmit} />
         <Route path="*" element={<Profile />} />
       </Routes>
