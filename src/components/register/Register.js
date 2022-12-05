@@ -11,6 +11,7 @@ export const Register = ({ onSubmit }) => {
   };
   const [state, setState] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
+  // eslint-disable-next-line no-unused-vars
   const { login, password, email, phone, agreement } = state;
   const [isSubmit, setIsSubmit] = useState(false);
   const handleChange = e => {
