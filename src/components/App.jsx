@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense, useEffect, useState } from 'react';
-// import { Profile } from './profile/Profile';
-import { fetchPeople } from './services';
+import { fetchPeople, register } from './services';
 
 const Register = lazy(() =>
   import('./register/Register').then(module => ({ default: module.Register }))
@@ -33,8 +32,14 @@ export const App = () => {
     setPage(page + 1);
   };
   const onSubmit = values => {
-    console.log(values);
-    // send swapitable and form data
+    const { name, vehicle, created } = swapiTable;
+    const credentials = {
+      form: { ...values },
+      star_wars_data: { name, vehicle, created },
+    };
+    register(credentials);
+    alert('form has been sent');
+    console.log(credentials);
   };
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -51,7 +56,7 @@ export const App = () => {
             }
           />
         )}
-        <Route path="/register" element={<Register />} onSubmit={onSubmit} />
+        <Route path="/register" element={<Register onSubmit={onSubmit} />} />
         <Route path="*" element={<Profile />} />
       </Routes>
     </Suspense>

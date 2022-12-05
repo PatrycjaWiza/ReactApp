@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Register = ({ onSubmit }) => {
   const initialState = {
@@ -12,6 +12,7 @@ export const Register = ({ onSubmit }) => {
   const [state, setState] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const { login, password, email, phone, agreement } = state;
+  const [isSubmit, setIsSubmit] = useState(false);
   const handleChange = e => {
     const { name, value } = e.target;
     setState(prev => ({
@@ -19,11 +20,13 @@ export const Register = ({ onSubmit }) => {
       [name]: value,
     }));
   };
+  const handleCheckbox = e => {
+    setState({ ...state, agreement: e.target.checked });
+  };
   const handleSubmit = e => {
     e.preventDefault();
     setFormErrors(validate(state));
-    onSubmit(state);
-    resetForm();
+    setIsSubmit(true);
   };
   const resetForm = () => {
     setState(initialState);
@@ -43,6 +46,13 @@ export const Register = ({ onSubmit }) => {
     }
     return errors;
   };
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      onSubmit(state);
+      resetForm();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formErrors]);
   return (
     <form onSubmit={handleSubmit}>
       <h2>FORMULARZ REJESTRACYJNY</h2>
@@ -87,8 +97,7 @@ export const Register = ({ onSubmit }) => {
             type="checkbox"
             id="agreement"
             name="agreement"
-            onChange={handleChange}
-            checked={agreement}
+            onChange={handleCheckbox}
             className={formErrors.agreement && 'invalid'}
           />
           <span className="checkmark"></span>

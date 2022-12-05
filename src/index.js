@@ -5,8 +5,9 @@ import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode> basename="/"
-  <BrowserRouter>
+  // <React.StrictMode>
+  //basename="/"
+  <BrowserRouter basename="https://patrycjawiza.github.io/ReactApp/">
     <App />
   </BrowserRouter>
   //</React.StrictMode>

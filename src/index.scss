@@ -5,6 +5,11 @@
 @import './components/profile/ProfileStyles';
 @import './components/register/RegisterStyles';
 
+@media screen and(max-width: 468px) {
+  body {
+    max-width: 320px;
+  }
+}
 body {
   margin: 0 auto;
   text-align: center;

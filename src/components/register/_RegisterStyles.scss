@@ -4,10 +4,9 @@ form {
   padding-top: 101px;
   margin: 0 auto;
   max-width: 1200px;
-  height: 100vh;
   background-color: #ffffff;
   text-align: left;
-
+  padding-bottom: 30px;
   h2 {
     text-align: right;
     padding-right: 174px;
@@ -140,4 +139,64 @@ form {
   & .invalid {
     border-bottom: 1px solid #f00;
   }
+}
+@media screen and(max-width: 760px) {
+  form {
+    margin: 0 auto;
+    max-width: 220px;
+    padding: 10px;
+    & .form-group {
+      font-size: 15px;
+      // padding-left: 10px;
+      max-width: 188px;
+      & label {
+        margin-bottom: 10px;
+        &.checkbox {
+          margin-top: 0;
+          padding-left: 30px;
+          & .checkmark {
+            width: 10px;
+            height: 10px;
+            &::after {
+              left: 4px;
+              top: -2px;
+              width: 2px;
+              height: 7px;
+            }
+          }
+        }
+      }
+    }
+    & h2 {
+      margin: 0 auto;
+      text-align: right;
+      padding: 0;
+      // max-width: 188px;
+      &::after {
+        margin-left: 41px;
+        top: 3px;
+        overflow: hidden;
+      }
+    }
+    & .error,
+    .agreement--error {
+      font-size: 13px;
+    }
+
+    & .checkbox input:not(:checked) ~ .checkmark {
+      width: 10px;
+      height: 10px;
+    }
+    & button {
+      width: 124px;
+      font-size: 25px;
+    }
+  }
+}
+@media screen and(min-width: 461px) and(max-width: 1200px) {
+  form {
+    max-width: 768px;
+  }
+}
+@media screen and(min-width: 1201px) {
 }

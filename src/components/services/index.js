@@ -13,12 +13,15 @@ export const fetchPeople = async page => {
 const setAuthToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
-export const register = credentials => async () => {
-  try {
-    const { data } = await axios.post('people/1/', credentials);
-    setAuthToken(data.token);
-    //registersuccess
-  } catch (error) {
-    console.error(error);
-  }
-};
+export const register =
+  ({ credentials }) =>
+  async () => {
+    try {
+      const { data } = await axios.post('people/1/', { credentials });
+      setAuthToken(data.token);
+      console.log(data);
+      return { data };
+    } catch (error) {
+      console.error(error);
+    }
+  };

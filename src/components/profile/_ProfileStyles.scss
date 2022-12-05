@@ -12,7 +12,6 @@ h1 {
 .profile__wrapper {
   margin: 0 auto;
   max-width: 1200px;
-  height: 100vh;
   background-color: #ffffff;
 }
 .profile-header {
@@ -28,8 +27,6 @@ h1 {
   padding-bottom: 69.69px;
   max-width: 800px;
   min-height: 739.83px;
-  //   background: #917878;
-  //   background: rgba(54, 44, 44, 0.01);
   background: rgba(54, 44, 44, 0.39);
   backdrop-filter: blur(280px);
   border-radius: 500px 60px 300px 100px;
@@ -60,9 +57,6 @@ h1 {
     position: relative;
     margin: 0 auto;
     max-width: 400px;
-    // max-height: 76px;
-    // margin-top: 25.39px;
-    // margin-right: 21px;
     font-weight: 800;
     font-size: 50px;
     line-height: 1.22;
@@ -86,11 +80,11 @@ h1 {
 button {
   width: 236px;
   height: 90px;
+  margin-bottom: 30px;
   background: #35660e;
   box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
   border: none;
-  // font-family: 'Lato';
   font-style: italic;
   font-weight: 400;
   font-size: 30px;
